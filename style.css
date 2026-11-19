@@ -1,0 +1,101 @@
+body{
+    background-color: #191919;
+}
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    color: #d97757;
+    font-family: monospace;
+}
+
+
+.des{
+    display: flex;
+    justify-content: center;
+    color:#efefef ;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;   /* encabezados, matriz y botón uno debajo del otro */
+    align-items: center;      /* centrados horizontalmente */
+    gap: 10px;
+    margin-top: 30px;
+}
+
+
+/* --- Matriz y encabezados: la misma cuadrícula para que las columnas se alineen --- */
+
+.matriz,
+.encabezados{
+    display: grid;
+    /* 3 columnas de coeficientes | 1 columna delgada para la línea | 1 columna de resultados */
+    grid-template-columns: repeat(3, 70px) 3px 70px;
+    gap: 10px;
+    padding: 10px 15px;
+}
+
+
+/* Los "corchetes" a los lados de la matriz */
+.matriz{
+    border-left: 3px solid #efefef;
+    border-right: 3px solid #efefef;
+    border-radius: 8px;
+}
+
+/* Mismo grosor de borde pero invisible, para que los encabezados queden alineados con la matriz */
+.encabezados{
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #efefef;
+}
+
+/* El "=" va en la 5ª columna, saltándose la columna de la línea */
+.encabezado-resultado{
+    grid-column: 5;
+    color: #efefef;
+}
+
+
+/* La línea vertical de la matriz aumentada */
+.separador{
+    grid-column: 4;         /* vive en la columna delgada */
+    grid-row: 1 / span 3;   /* y ocupa las 3 filas de alto */
+    background-color: #efefef;
+}
+
+
+/* Cada casilla */
+.celda{
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #555;
+    border-radius: 30px;
+}
+
+/* La columna de resultados, con otro color para distinguirla */
+.resultado{
+    background-color: #fff4d6;
+}
+
+
+#btnResolver{
+    padding: 10px 30px;
+    font-size: 18px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+

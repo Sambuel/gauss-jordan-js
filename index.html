@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Método de Gauss-Jordan</h1>
+        <p class="des">Este es un algoritmo que resuelve sistemas de ecuaciones 3x3 mediante el metodo de Gauss-Jordan.</p>
+    </header>
+
+    <main>
+        <!-- Encabezados de las columnas: x, y, z | resultado -->
+        <div class="encabezados">
+            <span>x</span>
+            <span>y</span>
+            <span>z</span>
+            <span class="encabezado-resultado">=</span>
+        </div>
+
+        <!-- Matriz aumentada 3x4: 3 coeficientes + 1 resultado por fila -->
+        <div class="matriz">
+            <!-- La línea vertical que separa la parte aumentada -->
+            <div class="separador"></div>
+
+            <!-- Fila 1 -->  
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda resultado" type="number">
+
+            <!-- Fila 2 -->
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda resultado" type="number">
+
+            <!-- Fila 3 -->
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda" type="number">
+            <input class="celda resultado" type="number">
+        </div>
+
+
+        
+
+        <button id="btnResolver">Resolver</button>
+    </main>
+
+
+</body>
+</html>
+
+
+
+
+

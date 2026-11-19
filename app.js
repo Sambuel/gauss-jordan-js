@@ -1,18 +1,27 @@
+// referencias HTML
 const inputs = document.querySelectorAll("input");
 const btnResolver = document.querySelector("#btnResolver");
 
 
-btnResolver.addEventListener("click", () => {
+
+// funcion que lee los inputs que un for itera para que se haga un push en el array matriz
+const leerMatriz = (inputs) => {
     let fila = [];
     let matriz = [];
 
-    for(let input of [1,2,3,4,5,6,7,8,9,10,11,1]){
-        fila.push(Number(input));
+    for(let input of  inputs){
+        fila.push(Number(input.value));
         if (fila.length === 4) {
             matriz.push(fila)
             fila = []
         }
     }
+    return matriz
+}
+
+
+btnResolver.addEventListener("click", () => {
+    console.log(leerMatriz(inputs));
 })
 
 

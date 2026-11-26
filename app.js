@@ -1,6 +1,10 @@
 // referencias HTML
 const inputs = document.querySelectorAll("input");
 const btnResolver = document.querySelector("#btnResolver");
+const resultadoX = document.querySelector("#resultadoX");
+const resultadoY = document.querySelector("#resultadoY");
+const resultadoZ = document.querySelector("#resultadoZ");
+
 
 
 
@@ -9,8 +13,8 @@ const leerMatriz = (inputs) => {
     let fila = [];
     const matriz = [];
 
-    for(let input of [1,2,3,24,2,1,1,16,3,1,2,24]){
-        fila.push(Number(input));
+    for(let input of inputs){
+        fila.push(Number(input.value));
         if (fila.length === 4) {
             matriz.push(fila)
             fila = []
@@ -71,19 +75,45 @@ const bajarCeros = (matriz) => {
     matriz[0] = combinarFilas(matriz[2][2], matriz[0], matriz[0][2], matriz[2])
 
     // F1 nueva
-
     matriz[0] = combinarFilas(matriz[1][1], matriz[0], matriz[0][1], matriz[1])
-
-
     return matriz
 }
 
 
+// Fase 3 - Normalizar 
+const dividirFila = (matriz ,pos, valorDivisible,) => {
+    let resultados = []
+    
+    for(let valor of matriz[pos]){
+        const operacion = valor / valorDivisible 
+        resultados.push(operacion);
+    }
+    return resultados
+}
+
+
+
+const normalizar = (matriz) => {
+    const f1 = dividirFila(matriz,0, matriz[0][0])  
+    const f2 = dividirFila(matriz,1, matriz[1][1]) 
+    const f3 = dividirFila(matriz,2, matriz[2][2])  
+    return [f1[3], f2[3] , f3[3]] 
+} 
+
+
+const mostrarResultados = (numeros) => {
+    resultadoX.textContent = numeros[0];
+    resultadoY.textContent = numeros[1];
+    resultadoZ.textContent = numeros[2];
+    
+}
 
 
 btnResolver.addEventListener("click", () => {
-    // console.log(leerMatriz(inputs));
-    console.log(bajarCeros(leerMatriz(inputs)));
+    const valores = leerMatriz(inputs);
+    const fasesUnoDos = bajarCeros(valores);
+    const faseFinal = normalizar(fasesUnoDos);
+    const mostrar = mostrarResultados(faseFinal)
     
 })
 

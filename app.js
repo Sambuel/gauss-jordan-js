@@ -114,6 +114,5 @@ btnResolver.addEventListener("click", () => {
     const fasesUnoDos = bajarCeros(valores);
     const faseFinal = normalizar(fasesUnoDos);
     const mostrar = mostrarResultados(faseFinal)
-    
 })
 
